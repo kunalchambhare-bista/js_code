@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+            <record id="attendance_report_print_action" model="ir.actions.report">
+            <field name="name">Attendance Report</field>
+            <field name="model">attendance.report</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">bista_training.attendance_report</field>
+            <field name="report_file">bista_training.attendance_report</field>
+            <field name="binding_model_id" ref="model_attendance_report"/>
+            <field name="binding_type">report</field>
+        </record>
+    </data>
+</odoo>

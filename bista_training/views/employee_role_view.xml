@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="sale_order_signature_customer_field_form" model="ir.ui.view">
+        <field name="name">Sale Order Form</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='signed_by']" position="after">
+                <field name="customer_name"/>
+            </xpath>
+        </field>
+    </record>
+
+
+    <record id="employee_list_form" model="ir.ui.view">
+        <field name="name">employee.list.form</field>
+        <field name="model">employee.list</field>
+        <field name="arch" type="xml">
+            <form string="Employees">
+                <sheet>
+                    <group>
+                        <field name="employee_name"/>
+                        <field name="role"/>
+                        <field name="employee_sequence"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="employee_list_tree" model="ir.ui.view">
+        <field name="name">employee.list.tree</field>
+        <field name="model">employee.list</field>
+        <field name="arch" type="xml">
+            <tree string="Employees">
+                <field name="employee_name"/>
+                <field name="role"/>
+                <field name="employee_sequence"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--    <record id="employee_role_tree" model="ir.ui.view">-->
+    <!--        <field name="name">employee.role.tree</field>-->
+    <!--        <field name="model">employee.role</field>-->
+    <!--        <field name="arch" type="xml">-->
+    <!--            <tree string="Roles">-->
+    <!--                <field name="name"/>-->
+    <!--            </tree>-->
+    <!--        </field>-->
+    <!--    </record>-->
+
+    <!--    <record id="employee_role_form" model="ir.ui.view">-->
+    <!--        <field name="name">employee.role.form</field>-->
+    <!--        <field name="model">employee.role</field>-->
+    <!--        <field name="arch" type="xml">-->
+    <!--            <form string="Roles">-->
+    <!--                <sheet>-->
+    <!--                    <group>-->
+    <!--                        <field name="name"/>-->
+
+    <!--                    </group>-->
+    <!--                </sheet>-->
+    <!--            </form>-->
+    <!--        </field>-->
+    <!--    </record>-->
+
+    <record id="employee_list_action" model="ir.actions.act_window">
+        <field name="name">Employee List</field>
+        <field name="res_model">employee.list</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!--        <record id="employee_role_action" model="ir.actions.act_window">-->
+    <!--            <field name="name">Employee Role</field>-->
+    <!--            <field name="res_model">employee.role</field>-->
+    <!--            <field name="view_mode">tree,form</field>-->
+    <!--        </record>-->
+
+    <menuitem name="Employee" id="bista_employee_list_menu" parent="batch_root_menu"/>
+    <menuitem name="Employee List" id="employee_list_menu" parent="bista_employee_list_menu"
+              action="employee_list_action"/>
+    <!--        <menuitem name="Roles" id="bista_employee_role_menu" parent="bista_employee_list_menu" action="employee_role_action"/>-->
+
+</odoo>

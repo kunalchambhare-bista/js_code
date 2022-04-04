@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+
+    <record id="view_trainee_master_kanban" model="ir.ui.view">
+        <field name="name">trainee.master.kanban</field>
+        <field name="model">trainee.master</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="training_stages_id" class="o_kanban_mobile" sample="1">
+                <field name="trainee_id"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_card oe_kanban_global_click">
+                            <div class="o_kanban_record_top mb16">
+                                <div class="o_kanban_record_headings mt4">
+                                    <strong class="o_kanban_record_title">
+                                        <span>
+                                            <t t-esc="record.trainee_id.value"/>
+                                        </span>
+                                    </strong>
+                                    <!--                                        <field name="movie_language"/>-->
+                                </div>
+                                <!--                                    <div>-->
+                                <!--                                        <strong>-->
+                                <!--                                            <field name="currency_id"/>-->
+                                <!--                                            <field name="dvd_cost"/>-->
+                                <!--                                        </strong>-->
+                                <!--                                    </div>-->
+                            </div>
+                            <!--                                <div class="o_kanban_record_bottom">-->
+                            <!--                                        <div class="oe_kanban_bottom_left">-->
+                            <!--                                            <field name="director_ids"/>-->
+                            <!--                                        </div>-->
+                            <!--                                        <div class="oe_kanban_bottom_right">-->
+                            <!--                                            <field name="state"/>-->
+                            <!--                                        </div>-->
+                            <!--                                </div>-->
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+
+    <record id="view_trainee_master_tree" model="ir.ui.view">
+        <field name="name">Trainee Tree</field>
+        <field name="model">trainee.master</field>
+        <field name="arch" type="xml">
+            <tree string="Trainee">
+                <field name="name"/>
+                <field name="trainee_id"/>
+                <field name="designation"/>
+                <field name="trainee_batch_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_trainee_master_form" model="ir.ui.view">
+        <field name="name">trainee.master.form</field>
+        <field name="model">trainee.master</field>
+        <field name="arch" type="xml">
+            <form string="Trainee">
+                <header>
+                    <button type="object"
+                            attrs="{'invisible':[('status','in',['rejected','employed'])]}"
+                            name="reject_intern"
+                            string="Reject"/>
+
+                    <button type="object"
+                            attrs="{'invisible': [('status','in','training')]}"
+                            name="convert_to_intern"
+                            string="Make Intern"/>
+                    <!--                                        <button class="oe_edit_only" type="object" attrs="{'invisible': [('status', '=', 'rejected')]}" name="update_to_PG13" string="PG-13"/>-->
+
+                    <button class="oe_highlight" type="object"
+                            attrs="{'invisible': [('status','in',['employed','new','rejected'])]}"
+                            name="convert_to_employee"
+                            string="Convert to Employee"/>
+                    <field name="training_stages_id" widget="statusbar" clickable="1"/>
+
+
+                </header>
+                <sheet>
+                    <field name="profile_image" widget='image' class="oe_avatar" nolabel="1"/>
+                    <h1>
+                        <div>
+                            <field name="trainee_id"/>
+                        </div>
+                        <div>
+                            <field name="name"/>
+                        </div>
+                    </h1>
+                    <group>
+                        <!--                        <group>-->
+                        <!--                        </group>-->
+                        <!--                        <group>-->
+
+                        <!--                        </group>-->
+                        <group>
+                            <group>
+                                <div>
+                                    <field name="first_name" placeholder="First Name" class="oe_inline"/>
+                                    <field name="last_name" placeholder="Last Name" class="oe_inline"/>
+                                </div>
+                            </group>
+                            <!--                            <field name="first_name"/>-->
+                            <!--                            <field name="last_name"/>-->
+                            <group>
+                                <field name="Gender"/>
+                                <field name="linkedin_url" widget="url"/>
+                                <field name="trainee_email"/>
+                                <field name="date_of_birth" options="{'datepicker':{'maxDate': '2000-01-01'}}"/>
+                                <field name="date_of_joining"/>
+                                <field name="contact_number" widget="phone"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="status"/>
+                            <field name="location"/>
+                            <field name="designation"/>
+                            <field name="trainee_batch_id"/>
+                            <field name="trainee_age" widget="colorselector_2"/>
+<!--                            <field name="trainee_age" options='{"type": "number", "step": 1}'/>-->
+                            <field name="employee_id"
+                                   attrs="{'invisible': [('status', '!=', 'employed')]}"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_trainee_location_tree" model="ir.ui.view">
+        <field name="name">trainee.location.tree</field>
+        <field name="model">trainee.location</field>
+        <field name="arch" type="xml">
+            <tree string="Location">
+                <field name="location"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_trainee_location_form" model="ir.ui.view">
+        <field name="name">Trainee Location Tree</field>
+        <field name="model">trainee.location</field>
+        <field name="arch" type="xml">
+            <form string="Location">
+                <sheet>
+                    <group>
+                        <field name="location"/>
+
+                        <label for="street_one" string="Address"/>
+                        <div>
+                            <field name="street_one" placeholder="Street 1"/>
+                            <field name="street_two" placeholder="Street 1"/>
+                            <field name="country_id" placeholder="Country"/>
+                            <field name="state_id" placeholder="State"
+                                   attrs="{'invisible': [('country_id', '=', False)]}"/>
+                            <field name="city" placeholder="City" attrs="{'invisible': [('state_id', '=', False)]}"/>
+                        </div>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="trainee_master_action" model="ir.actions.act_window">
+        <field name="name">Trainee</field>
+        <field name="res_model">trainee.master</field>
+        <field name="view_mode">tree,form,kanban</field>
+    </record>
+
+    <record id="trainee_location_action" model="ir.actions.act_window">
+        <field name="name">Location</field>
+        <field name="res_model">trainee.location</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem name="Trainee" id="bista_trainee_root_menu" parent="batch_root_menu"/>
+    <menuitem name="Trainee" id="trainee_root_menu" parent="bista_trainee_root_menu" action="trainee_master_action"/>
+    <menuitem name="Location" id="location_root_menu" parent="bista_trainee_root_menu"
+              action="trainee_location_action"/>
+
+
+</odoo>

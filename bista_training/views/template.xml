@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="bista_trainee" name="Bista Trainee">
+        <t t-call="website.layout">
+            <div class="container">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>
+                                Names
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="trainee" t-as="trainee">
+                            <tr>
+                                <td>
+                                    <t t-esc="trainee.name"/>
+                                </td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+
+                This is a Template!!!
+            </div>
+        </t>
+    </template>
+</odoo>

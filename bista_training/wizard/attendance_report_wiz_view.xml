@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_attendance_report_wiz_form" model="ir.ui.view">
+        <field name="name">attendance.report.form</field>
+        <field name="model">attendance.report</field>
+        <field name="arch" type="xml">
+            <form string="Attendance Report">
+                <p class="oe_grey">
+                    Report
+                </p>
+                <group>
+                    <field name="from_date"/>
+                    <field name="to_date"/>
+                    <field name="trainee_id"/>
+                </group>
+                <footer>
+                    <button string="Print" name="print_report" type="object" class="oe_highlight"/>
+                    <button string="Cancel" class="btn btn_default" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="attendance_report_action" model="ir.actions.act_window">
+        <field name="name">Attendance Report Action</field>
+        <field name="res_model">attendance.report</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_attendance_report_wiz_form"/>
+        <field name="target">new</field>
+
+    </record>
+
+    <menuitem name="Trainee Attendance Report" id="trainee_attendance_root_menu" parent="bista_trainee_root_menu"
+              action="attendance_report_action"/>
+
+</odoo>

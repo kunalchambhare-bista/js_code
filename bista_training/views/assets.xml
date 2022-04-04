@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="spinner_asset" name="spinner_asset_backend" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/bista_training/static/src/js/basic_field_widget.js"/>
+            <script type="text/javascript" src="/bista_training/static/src/js/colorpicker_widget.js"/>
+        </xpath>
+    </template>
+
+    <template id="res_partner_model" inherit_id="website.assets_frontend">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/bista_training/static/src/js/website_task.js"/>
+        </xpath>
+    </template>
+
+    <template id="assets_delete" inherit_id="point_of_sale.assets">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/bista_training/static/src/js/pos_delete_button.js"/>
+        </xpath>
+    </template>
+
+    <template id="assets_frontend" inherit_id="web.assets_frontend" name="Portal Assets" priority="15">
+        <xpath expr="//script[last()]" position="after">
+            <script type="text/javascript" src="/bista_training/static/src/js/customer_portal.js"/>
+        </xpath>
+    </template>
+
+    <template id="template_test" name="Test">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 ">
+                            <h1>Test Test</h1>
+                        </div>
+                        <div class="col-12 table_template">
+                            <div class="btn btn-primary">On Click</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </t>
+    </template>
+
+
+    <template id="template_test_partner" name="Test Partner">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="container">
+                    <div class="col-12 ">
+                        <h1>Partner Details</h1>
+                    </div>
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <span t-esc="partner.id"/>
+                                </td>
+                                <td>
+                                    <span t-esc="partner.name"/>
+                                </td>
+                                <td>
+                                    <span t-esc="partner.phone"/>
+                                </td>
+                                <td>
+                                    <span t-esc="partner.email"/>
+                                </td>
+                                <td>
+                                    <span t-esc="partner.barcode"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </t>
+    </template>
+
+</odoo>

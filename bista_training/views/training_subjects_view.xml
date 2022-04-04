@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <!--    <record id="view_product_style_tree" model="ir.ui.view">-->
+    <!--        <field name="name">product style</field>-->
+    <!--        <field name="model">product.style</field>-->
+    <!--        <field name="arch" type="xml">-->
+    <!--            <tree string="Product Style" editable="top">-->
+    <!--                <field name="name"/>-->
+    <!--                <field name="style_of_product"/>-->
+    <!--            </tree>-->
+    <!--        </field>-->
+    <!--    </record>-->
+
+    <record id="view_training_subjects_tree" model="ir.ui.view">
+        <field name="name">training.subjects.tree</field>
+        <field name="model">training.subjects</field>
+        <field name="arch" type="xml">
+            <tree string="Training Subjects">
+                <field name="subject_name"/>
+                <field name="subject_trainer_ids" widget="many2many_tags"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_training_topics_tree" model="ir.ui.view">
+        <field name="name">training.topics.tree</field>
+        <field name="model">training.topics</field>
+        <field name="arch" type="xml">
+            <tree string="Training Topics">
+                <field name="display_name"/>
+                <field name="batch_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_training_stages_tree" model="ir.ui.view">
+        <field name="name">training.stages.tree</field>
+        <field name="model">training.stages</field>
+        <field name="arch" type="xml">
+            <tree string="Training Stages">
+                <field name="stage_name"/>
+                <field name="status"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="training_subjects_action" model="ir.actions.act_window">
+        <field name="name">Training Subjects</field>
+        <field name="res_model">training.subjects</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="training_topics_action" model="ir.actions.act_window">
+        <field name="name">Training Topics</field>
+        <field name="res_model">training.topics</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="training_stages_action" model="ir.actions.act_window">
+        <field name="name">Training Stages</field>
+        <field name="res_model">training.stages</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Subjects" id="bista_subject_root_menu" parent="batch_root_menu"/>
+    <menuitem name="Subjects" id="subject_root_menu" parent="bista_subject_root_menu"
+              action="training_subjects_action"/>
+    <menuitem name="Topics" id="Topic_root_menu" parent="bista_subject_root_menu" action="training_topics_action"/>
+    <menuitem name="Stages" id="stages_root_menu" parent="bista_subject_root_menu" action="training_stages_action"/>
+
+</odoo>

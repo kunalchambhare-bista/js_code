@@ -1,0 +1,17 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_employee_list,access_employee_list,model_employee_list,base.group_user,1,1,1,1
+access_trainee_master,access_trainee_master,model_trainee_master,base.group_user,1,1,1,1
+access_trainee_location,access_trainee_location,model_trainee_location,base.group_user,1,1,1,1
+access_trainer_master,access_trainer_master,model_trainer_master,base.group_user,1,1,1,1
+access_training_subjects,access_training_subjects,model_training_subjects,base.group_user,1,1,1,1
+access_training_topics,access_training_topics,model_training_topics,base.group_user,1,1,1,1
+access_training_stages,access_training_stages,model_training_stages,base.group_user,1,1,1,1
+access_training_batch,access_training_batch,model_training_batch,base.group_user,1,1,1,1
+access_training_record,access_training_record,model_training_record,base.group_user,1,1,1,1
+access_training_record_line,access_training_record_line,model_training_record_line,base.group_user,1,1,1,1
+access_training_attendance,access_training_attendance,model_training_attendance,base.group_user,1,1,1,1
+access_training_score,access_training_score,model_training_score,base.group_user,1,1,1,1
+access_training_topics_line,access_training_topics_line,model_training_topics_line,base.group_user,1,1,1,1
+access_covert_to_employee,access_covert_to_employee,model_covert_to_employee,base.group_user,1,1,1,1
+access_reject_reason,access_reject_reason,model_reject_reason,base.group_user,1,1,1,1
+access_attendance_report,access_attendance_report,model_attendance_report,base.group_user,1,1,1,1

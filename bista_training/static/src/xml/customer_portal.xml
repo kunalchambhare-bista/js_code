@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-extend="web.sign_name_and_signature">
+    <t t-jquery="div.o_web_sign_signature_group" t-operation="before">
+        <label class="col-form-label"
+               t-att-for="'o_web_customer_name_input' + widget.htmlId">Customer Name</label>
+        <input type="text" name="customer_name" t-att-id="'o_web_customer_name_input' + widget.htmlId"
+               class="o_web_customer_name_input form-control" t-att-value="widget.default_customer_name"
+               placeholder="Customer name" required=""/>
+    </t>
+    </t>
+ </templates>

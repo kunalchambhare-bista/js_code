@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!--        <record id="sale_order_line_see_all" model="ir.rule">-->
+        <!--            <field name="name">All Orders Lines</field>-->
+        <!--            <field ref="model_sale_order_line" name="model_id"/>-->
+        <!--            <field name="domain_force">[(1,'=',1)]</field>-->
+        <!--            <field name="groups" eval="[(4, ref('sales_team.group_sale_salesman_all_leads'))]"/>-->
+        <!--        </record>-->
+
+        <record id="module_category_bista_training" model="ir.module.category">
+            <field name="name">Bista Training Permissions</field>
+            <!--            <field name="name">Trainee Permissions</field>-->
+        </record>
+
+        <record id="trainee_group" model="res.groups">
+            <field name="name">Trainee Permissions</field>
+            <field name="category_id" ref="bista_training.module_category_bista_training"/>
+        </record>
+
+        <record id="trainer_group" model="res.groups">
+            <field name="name">Trainer Permissions</field>
+            <field name="category_id" ref="bista_training.module_category_bista_training"/>
+            <field name="implied_ids" eval="[(4, ref('trainee_group'))]"/>
+        </record>
+
+        <record id="training_coordinator_group" model="res.groups">
+            <field name="name">Training Co-ordinator Permissions</field>
+            <field name="category_id" ref="bista_training.module_category_bista_training"/>
+            <field name="implied_ids" eval="[(4, ref('trainer_group'))]"/>
+        </record>
+
+        <!--access_trainee_master,access_trainee_master,model_trainee_master,trainee_master.trainee_perm_group,1,0,0,0
+
+        access_training_batch,access_training_batch,model_training_batch,base.trainee_perm_group,1,0,0,0-->
+
+
+    </data>
+</odoo>

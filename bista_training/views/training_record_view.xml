@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <!--     <record id="view_trainer_master_tree" model="ir.ui.view">-->
+    <!--        <field name="name">trainer.master.tree</field>-->
+    <!--        <field name="model">trainer.master</field>-->
+    <!--        <field name="arch" type="xml">-->
+    <!--            <tree string="Trainers">-->
+    <!--                <field name="name"/>-->
+    <!--            </tree>-->
+    <!--        </field>-->
+    <!--    </record>-->
+
+    <record id="view_training_attendance_line_tree" model="ir.ui.view">
+        <field name="name">training.attendance.tree</field>
+        <field name="model">training.attendance</field>
+        <field name="arch" type="xml">
+            <tree string="Records">
+                <field name="name"/>
+                <field name="trainee_id"/>
+                <field name="login_time"/>
+                <field name="logout_time"/>
+                <field name="hours"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_training_attendance_line_form" model="ir.ui.view">
+        <field name="name">training.attendance.form</field>
+        <field name="model">training.attendance</field>
+        <field name="arch" type="xml">
+            <form string="Attendance">
+                <header>
+                    <button class="oe_highlight" type="object"
+                            name="print_report"
+                            string="Print Report"/>
+
+                </header>
+                <sheet>
+                    <group>
+                        <field name="training_record_id"/>
+                        <field name="name"/>
+                        <field name="trainee_id"/>
+                        <field name="date"/>
+                    </group>
+                    <group>
+                        <field name="login_time"/>
+                        <field name="logout_time"/>
+                        <field name="hours"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_training_topics_line_tree" model="ir.ui.view">
+        <field name="name">training.topics.line.tree</field>
+        <field name="model">training.topics.line</field>
+        <field name="arch" type="xml">
+            <tree string="Records">
+                <field name="topics_id"/>
+                <field name="remark"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_training_score_line_tree" model="ir.ui.view">
+        <field name="name">training.score.tree</field>
+        <field name="model">training.score</field>
+        <field name="arch" type="xml">
+            <tree string="Records">
+                <field name="trainee_name_id"/>
+                <field name="date_of_evaluation"/>
+                <field name="score"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="view_training_record_line_tree" model="ir.ui.view">
+        <field name="name">training.record.line.tree</field>
+        <field name="model">training.record.line</field>
+        <field name="arch" type="xml">
+            <tree string="Records">
+                <field name="trainee_name_id"/>
+                <field name="trainee_id"/>
+                <field name="attendance_status"/>
+                <field name="remarks"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="view_training_record_tree" model="ir.ui.view">
+        <field name="name">training.record.tree</field>
+        <field name="model">training.record</field>
+        <field name="arch" type="xml">
+            <tree string="Records">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="training_record_form" model="ir.ui.view">
+        <field name="name">training.record.form</field>
+        <field name="model">training.record</field>
+        <field name="arch" type="xml">
+            <form string="Records">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="rec_date"/>
+                        <field name="batch_id"/>
+                        <field name="score_total"/>
+                    </group>
+
+                    <notebook>
+                        <page string="Trainee Record">
+                            <field name="trainee_inverse_id">
+                                <!--                                <tree string="Log">-->
+                                <!--                                    <field name="username"/>-->
+                                <!--                                    &lt;!&ndash;                                <field name="address"/>&ndash;&gt;-->
+                                <!--                                    <field name="order_mode"/>-->
+                                <!--                                    <field name="date_of_order"/>-->
+                                <!--                                    &lt;!&ndash;                                <field name="display_return_date"/>&ndash;&gt;-->
+                                <!--                                </tree>-->
+                            </field>
+                        </page>
+                        <page string="Attendance Line">
+                            <field name="attendance_inverse_id">
+                                <!--                                <tree string="Log">-->
+                                <!--                                    <field name="username"/>-->
+                                <!--                                    &lt;!&ndash;                                <field name="address"/>&ndash;&gt;-->
+                                <!--                                    <field name="order_mode"/>-->
+                                <!--                                    <field name="date_of_order"/>-->
+                                <!--                                    &lt;!&ndash;                                <field name="display_return_date"/>&ndash;&gt;-->
+                                <!--                                </tree>-->
+                            </field>
+                        </page>
+                        <page string="Topics Line">
+                            <field name="topic_inverse_id">
+                                <!--                                <tree string="Log">-->
+                                <!--                                    <field name="username"/>-->
+                                <!--                                    &lt;!&ndash;                                <field name="address"/>&ndash;&gt;-->
+                                <!--                                    <field name="order_mode"/>-->
+                                <!--                                    <field name="date_of_order"/>-->
+                                <!--                                    &lt;!&ndash;                                <field name="display_return_date"/>&ndash;&gt;-->
+                                <!--                                </tree>-->
+                            </field>
+                        </page>
+                        <page string="Score Line">
+                            <field name="score_inverse_id">
+                                <!--                                <tree string="Log">-->
+                                <!--                                    <field name="username"/>-->
+                                <!--                                    &lt;!&ndash;                                <field name="address"/>&ndash;&gt;-->
+                                <!--                                    <field name="order_mode"/>-->
+                                <!--                                    <field name="date_of_order"/>-->
+                                <!--                                    &lt;!&ndash;                                <field name="display_return_date"/>&ndash;&gt;-->
+                                <!--                                </tree>-->
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="training_record_action" model="ir.actions.act_window">
+        <field name="name">training.record.action</field>
+        <field name="res_model">training.record</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="training_record_line_action" model="ir.actions.act_window">
+        <field name="name">training.record.line.action</field>
+        <field name="res_model">training.record.line</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="training_attendance_action" model="ir.actions.act_window">
+        <field name="name">training.attendance.action</field>
+        <field name="res_model">training.attendance</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="training_topics_line_action" model="ir.actions.act_window">
+        <field name="name">training.topics.line.action</field>
+        <field name="res_model">training.topics.line</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="training_score_line_action" model="ir.actions.act_window">
+        <field name="name">training.score.action</field>
+        <field name="res_model">training.score</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Records" id="Bista_training_record_root_menu" parent="batch_root_menu"/>
+
+    <menuitem name="Records" id="training_record_root_menu" parent="Bista_training_record_root_menu"
+              action="training_record_action"/>
+    <menuitem name="Record Line" id="training_record_line_root_menu" parent="Bista_training_record_root_menu"
+              action="training_record_line_action"/>
+    <menuitem name="Attendance Line" id="training_attendance_root_menu" parent="Bista_training_record_root_menu"
+              action="training_attendance_action"/>
+    <menuitem name="Topics Line" id="training_topics_line_menu" parent="Bista_training_record_root_menu"
+              action="training_topics_line_action"/>
+    <menuitem name="Score Line" id="training_score_line_menu" parent="Bista_training_record_root_menu"
+              action="training_score_line_action"/>
+
+
+</odoo>

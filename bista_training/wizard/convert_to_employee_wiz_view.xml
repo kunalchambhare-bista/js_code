@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_convert_to_employee_form" model="ir.ui.view">
+        <field name="name">convert.to.employee.form</field>
+        <field name="model">covert.to.employee</field>
+        <field name="arch" type="xml">
+            <form string="Conver To Employee">
+                <p class="oe_grey">
+                    The Following Intern will be converted to Employee
+                </p>
+                <group>
+                    <field name="trainee_name"/>
+                    <field name="role" widget="radio"/>
+                </group>
+                <footer>
+                    <button string="Convert To Employee" name="convert_to_employee" type="object" class="oe_highlight"/>
+                    <button string="Cancel" class="btn btn_default" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>
